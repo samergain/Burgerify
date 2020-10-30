@@ -14,14 +14,16 @@ $(function() {
       );
     });
   
-    $(".create-form").on("submit", function(event) {
-      // Make sure to preventDefault on a submit event.
-      event.preventDefault();
+    // $(".create-form").on("submit", function(event) {
+    //   // Make sure to preventDefault on a submit event.
+    //   event.preventDefault();
   
-      var newBurger = {
-        burger_name: $("#burger").val().trim(),
-      };
-  
+    //   var newBurger = {
+    //     burger_name: $("#burger").val().trim(),
+    //   };
+      $("#addBurger-btn").on("click", function(){
+        event.preventDefault();
+        var newBurger = { burger_name: $("#addBurger-text").val().trim() };
       // Send the POST request.
       $.ajax("/api/burger", {
         type: "POST",

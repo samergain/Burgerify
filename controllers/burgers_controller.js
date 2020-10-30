@@ -4,6 +4,7 @@ let burger = require("../models/burger");
 let router = express.Router();
 
 router.get("/", function(req,res){
+   
     burger.allBurgers(function(data){
         let listOfBurgers = { burgers: data }
         console.log("we are in controller sending data to the browser using index.handlebar");
