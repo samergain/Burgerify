@@ -4,19 +4,21 @@ const orm = {
     selectAll: function(fromTable, callBack){
         connection.query("select * from ??", fromTable, function(err,result){
             // TODO remove log
-            console.log("error in orm.js selectAll is:", err, " and the result is:", result);
+            console.log("we are in orm receiving data from DB and sending it to burger model");
             if (err) { throw err }
             callBack(err, result);
         })
     },
-    insertOne: function(intoTable,colsToInsert,values){
-        connection.query("insert into ?? (??) values (?)", [intoTable,colsToInsert,values], function(err){
+    insertOne: function(colsToInsert,values, callBack){
+        connection.query("insert into burgers (??) values (?)", [colsToInsert,values], function(err,result){
             if (err) { throw err} 
+            callBack(err, result)
         })
     },
-    updateOne: function(tableToUpdate,setCol,setValue,whereCol,isValue){
-        connection.query("update ?? set ?? = ? where ?? = ?",[tableToUpdate,setCol,setValue,whereCol,isValue],function(err){
+    updateOne: function(setCol,setValue,whereCol, whereVal,callBack){
+        connection.query("update burgers set ?? = ? where ?? = ?",[setCol,setValue,whereCol,whereVal],function(err,result){
             if(err) { throw err }
+            callBack(err,result);
         })
     }
 }
