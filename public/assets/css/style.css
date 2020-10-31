@@ -1,0 +1,21 @@
+html, body {
+    margin: 0px;
+    padding: 0px;
+    background-color: burlywood;
+}
+li {
+    list-style-type: none;
+}
+.cntr {
+    text-align: center;
+}
+.available {
+    background-color: cornsilk;
+}
+
+.belly {
+    background-color: rgb(149, 148, 144);
+}
+.strikout {
+    text-decoration: line-through;
+}

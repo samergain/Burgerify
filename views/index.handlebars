@@ -1,0 +1,30 @@
+<div class="col-sm-6 available cntr">
+  <h2>Available Burgers!</h2>
+	<ul>
+    {{#each burgers}}
+      {{#unless devoured}}
+      <li>
+          {{burger_name}} 
+        <button class="devour btn btn-success rounded-circle" data-id="{{id}}">
+            Devour
+        </button>
+      </li>
+      {{/unless}}
+    {{/each}}
+  </ul>
+</div>
+<div class="col-sm-6 belly cntr">
+	<h2>Global Belly!</h2>
+  <ul class="strikout">
+    {{#each burgers}}
+      {{#if devoured}}
+      <li>
+          {{burger_name}} 
+      </li>
+      {{/if}}
+    {{/each}}
+  </ul>
+</div>
+
+
+
